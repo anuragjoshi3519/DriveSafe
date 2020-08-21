@@ -1,6 +1,6 @@
 import cv2
 import os
-from keras.models import load_model
+from tensorflow.keras.models import load_model
 import numpy as np
 from pygame import mixer
 import time
@@ -17,7 +17,7 @@ reye = cv2.CascadeClassifier('haarcascade_files/haarcascade_righteye_2splits.xml
 
 lbl=['Close','Open']
 
-model = load_model('cnnCat2.h5')
+model = load_model('minecnnCat2.h5')
 path = os.getcwd()
 cap = cv2.VideoCapture(0)
 font = cv2.FONT_HERSHEY_COMPLEX_SMALL
