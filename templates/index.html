@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>{{title}}</title>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Semantic UI CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" integrity="sha256-9mbkOfVho3ZPXfM7W8sV2SndrGDuh7wuyLjtsWeTI1Q=" crossorigin="anonymous"/>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='layout.css')}}"/>
+
+</head>
+<body>
+    <div class="main-div">
+        <div class='header-div'>
+            <p>DriveSafe</p>
+        </div>
+        <form class="ui form form-div" action="/" method="POST">
+            <div class="ui grid">
+                <div class="left floated eight wide column">
+                    <select class="ui dropdown" id="place" name="place">
+                        <option value="0">Select place of driving</option>
+                        <option value="1">Country Side</option>
+                        <option value="2">City</option>
+                        <option value="3">HighWay</option>
+                        <option value="4">Hills</option>
+                    </select>
+                </div>
+                <div class="right floated eight wide column">
+                  <select class="ui dropdown" id="time" name="time">
+                        <option value="0">Select time of the day</option>
+                        <option value="1">Morning</option>
+                        <option value="1">Day</option>
+                        <option value="3">Evening</option>
+                        <option value="4">Night</option>
+                    </select>
+                </div>
+            </div>
+            <center class="start-button">
+                <button class="ui big positive button" type="submit">Start Webcam</button>
+            </center>
+        </form>
+        <div class="img-container">
+            {%if Selected %}
+            <img class="ui image" src="{{ url_for('stream') }}" style="width:63em; height:43em;">
+            {% else %}
+            <center style="margin-top:18em;">
+                <h3> Please select preferences </h3>
+            </center>
+            {% endif %}
+        </div>
+    </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.js" integrity="sha256-qs5p0BFSqSvrstBxPvex+zdyrzcyGdHNeNmAirO2zc0=" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -13,8 +13,8 @@ pip3 install -r requirements.txt
 
 ```
 
-Run:
+Run Web-app:
 
 ```bash
-python3 drowsiness_detection.py
+python3 app.py
 ```
