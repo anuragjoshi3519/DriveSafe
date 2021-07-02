@@ -52,7 +52,7 @@ def drive(start_score = 17, stop_score = 10):
             left_eye = leye.detectMultiScale(cropped_face)
             right_eye =  reye.detectMultiScale(cropped_face)
 
-            opencv.rectangle(frame, (0,height-50) , (200,height) , (0,0,0) , thickness=opencv.FILLED ) #draws a rectangle on the image for score and label
+            #opencv.rectangle(frame, (0,height-50) , (200,height) , (0,0,0) , thickness=opencv.FILLED ) #draws a rectangle on the image for score and label
 
             if len(right_eye)!=0:
                 x,y,w,h = right_eye[0]
@@ -86,20 +86,20 @@ def drive(start_score = 17, stop_score = 10):
 
         if(rpred==0 and lpred==0):
             score += 1
-            opencv.putText(frame,"Closed",(10,height-20), font, 1,(255,255,255),1,opencv.LINE_AA)
+            opencv.putText(frame,"Closed",(10,20), font, 1,(255,255,255),1,opencv.LINE_AA)
         # if(rpred[0]==1 or lpred[0]==1):
         else:
             if score > start_score*2:
                 score -= 2
             else:
                 score -= 1
-            opencv.putText(frame,"Open",(10,height-20), font, 1,(255,255,255),1,opencv.LINE_AA)
+            opencv.putText(frame,"Open",(10,20), font, 1,(255,255,255),1,opencv.LINE_AA)
 
 
         if(score<0):
             score=0
         
-        opencv.putText(frame,'Score:'+str(score),(100,height-20), font, 1,(255,255,255),1,opencv.LINE_AA)
+        opencv.putText(frame,'Score:'+str(score),(100,20), font, 1,(255,255,255),1,opencv.LINE_AA)
         
         if(score<=stop_score):
             buzzer.stop()
@@ -118,8 +118,8 @@ def drive(start_score = 17, stop_score = 10):
                     thickness=2
             opencv.rectangle(frame,(0,0),(width,height),(0,0,255),thickness) #draws a rectangle
         
-        if opencv.waitKey(1) & 0xFF == ord('q'):  #when q is pressed then capturing will terminate
-            break
+        #if opencv.waitKey(1) & 0xFF == ord('q'):  #when q is pressed then capturing will terminate
+        #    break
             
         ret, buffer = opencv.imencode('.jpg', frame)
         frame = buffer.tobytes()
