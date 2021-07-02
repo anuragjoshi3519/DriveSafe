@@ -1,4 +1,4 @@
-## Drowsiness Detection System: A prototype
+## DriveSafe : A Drowsiness Detection System
 
 ### How to run?
 
